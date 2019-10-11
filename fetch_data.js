@@ -18,12 +18,15 @@ const client = new Client({
 client.connect();
 
 app.get('/',(req,res)=>{
-    res.header("Access-Control-Allow-Origin", "*");
+    //res.header("Access-Control-Allow-Origin", "*");
     res.writeHead({'Content-Type':'application/json'}); 
     let sql='select *from mydatas';
     let query = client.query(sql,(err,results)=>{
-        if(err)throw err;
-        res.end(JSON.stringify(results.rows)); 
+        if(err)
+        throw err;
+        else{
+            res.end(JSON.stringify(results.rows)); 
+        }
     })
 })
 //this function is used to add with parameters
