@@ -1,3 +1,4 @@
+var PORT = process.env.PORT || 5000;
 const express = require('express');
 const app= express(); 
 var mysql = require('mysql');
@@ -29,6 +30,6 @@ app.get('/temperatures/add',(req,res)=>{
             }
         });
     });
-app.listen('9000',() =>{
+app.listen(process.env.PORT || 9000,() =>{
     console.log('server on port 9000')
 })
