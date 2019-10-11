@@ -1,6 +1,6 @@
 const { Client } = require('pg');
 var PORT = process.env.PORT || 5000;
-const cors = require('cors')
+//const cors = require('cors')
 const express = require('express');
 const app= express(); 
 // var mysql = require('mysql');
@@ -10,7 +10,7 @@ const app= express();
 //     password: "",
 //     database: "nodejs"
 // });
-app.use('cors');
+ 
 const connectionString ="postgres://zfbpinnpacsqse:96452ca65de4202428ce2ebfb4bb1a1468d900313ed59abeb2a45ed6e20a6419@ec2-54-83-55-122.compute-1.amazonaws.com:5432/dddusatmedpfl3";//process.env.MY_DB;
 const client = new Client({
     connectionString: connectionString  
@@ -19,7 +19,7 @@ client.connect();
 
 app.get('/',(req,res)=>{
     res.header("Access-Control-Allow-Origin", "*");
-   // res.writeHead({'Content-Type':'application/json'}); 
+    res.writeHead({'Content-Type':'application/json'}); 
     let sql='select *from mydatas';
     let query = client.query(sql,(err,results)=>{
         if(err)throw err;
