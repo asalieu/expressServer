@@ -5,7 +5,7 @@
   "main": "fetch_data.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node fetchdata.js"
+    "start": "node fetch_data.js"
   },
   "author": "",
   "license": "ISC",
