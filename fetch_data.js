@@ -21,7 +21,7 @@ app.get('/',(req,res)=>{
     let sql='select *from mydatas';
     let query = client.query(sql,(err,results)=>{
         if(err)throw err;
-        res.end(JSON.stringify(results)); 
+        res.end(JSON.stringify(results.rows)); 
     })
 })
 //this function is used to add with parameters
