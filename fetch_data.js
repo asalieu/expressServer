@@ -10,7 +10,7 @@ const app= express();
 //     password: "",
 //     database: "nodejs"
 // });
-
+app.use('cors');
 const connectionString ="postgres://zfbpinnpacsqse:96452ca65de4202428ce2ebfb4bb1a1468d900313ed59abeb2a45ed6e20a6419@ec2-54-83-55-122.compute-1.amazonaws.com:5432/dddusatmedpfl3";//process.env.MY_DB;
 const client = new Client({
     connectionString: connectionString  
@@ -39,6 +39,7 @@ app.get('/temperatures/add',(req,res)=>{
             }
         });
     });
+
 app.listen(process.env.PORT || 9000,() =>{
     console.log('server on port 9000')
 })
