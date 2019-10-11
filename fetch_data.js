@@ -1,4 +1,4 @@
-
+const cors = require('cors')
 const { Client } = require('pg');
 var PORT = process.env.PORT || 5000;
 const express = require('express');
@@ -18,6 +18,7 @@ const client = new Client({
 client.connect();
 
 app.get('/',(req,res)=>{
+    res.header("Access-Control-Allow-Origin", "*");
     res.writeHead(200,{'Content-Type':'application/json'}); 
     let sql='select *from mydatas';
     let query = client.query(sql,(err,results)=>{
