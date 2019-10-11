@@ -1,6 +1,6 @@
-const cors = require('cors')
 const { Client } = require('pg');
 var PORT = process.env.PORT || 5000;
+const cors = require('cors')
 const express = require('express');
 const app= express(); 
 // var mysql = require('mysql');
@@ -19,11 +19,11 @@ client.connect();
 
 app.get('/',(req,res)=>{
     res.header("Access-Control-Allow-Origin", "*");
-    res.writeHead(200,{'Content-Type':'application/json'}); 
+   // res.writeHead({'Content-Type':'application/json'}); 
     let sql='select *from mydatas';
     let query = client.query(sql,(err,results)=>{
         if(err)throw err;
-        res.end(JSON.stringify(results)); 
+        res.end(JSON.stringify(results.rows)); 
     })
 })
 //this function is used to add with parameters
